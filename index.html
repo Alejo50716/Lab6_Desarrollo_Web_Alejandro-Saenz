@@ -1,2 +1,473 @@
-<!-- TODO: construye aquí tu página (Lab #6) -->
- 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cafetería universitaria del campus: menú con precios para estudiantes, horarios, video de nuestro café y pedidos anticipados.">
+  <meta name="author" content="Alejandro Saenz">
+  <meta name="codigo-sesion" content="LAB6_V9S3">
+  <meta name="theme-color" content="#349720">
+  <title>Cafetería universitaria | Laboratorio #6</title>
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="stylesheet" href="css/estilos.css">
+  <style>
+    /* CSS interno: fila resaltada de la tabla al pasar el cursor */
+    tbody tr:hover {
+      background-color: #e7f3e4;
+    }
+  </style>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <noscript>
+    <p class="sin-js">JavaScript está desactivado: puedes ver todo el menú, pero los filtros y el botón Agregar no funcionarán.</p>
+  </noscript>
+  <a class="saltar" href="#servicios">Saltar al menú</a>
+
+  <header class="cabecera">
+    <nav class="barra" aria-label="Navegación principal">
+      <a class="marca" href="#inicio">
+        <img src="img/logo.png" alt="Logo de la Cafetería universitaria: taza de café blanca sobre fondo verde" width="44" height="44">
+        <span>Cafetería<br>universitaria</span>
+      </a>
+      <ul class="menu">
+        <li><a href="#sobre">Nosotros</a></li>
+        <li><a href="#servicios">Menú</a></li>
+        <li><a href="#tabla">Precios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a class="menu-cta" href="#contacto">Pedir ahora</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="ficha-1343" class="k-b86b6c">
+
+    <section id="inicio" class="heroe">
+      <div class="heroe-texto">
+        <p class="nota-mano">Café recién colado desde las 6:30 a. m.</p>
+        <h1>Cafetería universitaria</h1>
+        <p class="lema">Desayunos, almuerzos y café de Boquete entre clase y clase, con precios pensados para estudiantes.</p>
+        <p class="acciones">
+          <a class="boton" href="#servicios">Ver el menú</a>
+          <a class="boton boton-claro" href="#contacto">Hacer un pedido</a>
+        </p>
+        <div class="prueba">
+          <div class="miniaturas">
+            <img src="img/capuchino.png" alt="Miniatura de un capuchino" width="800" height="800">
+            <img src="img/empanadas.png" alt="Miniatura de empanadas" width="800" height="800">
+            <img src="img/batido.png" alt="Miniatura de un batido de fresa" width="800" height="800">
+          </div>
+          <p class="estado" data-estado>
+            <span class="punto" style="background-color: #349720;"></span>
+            <span id="estado-texto">Lunes a viernes de 6:30 a. m. a 8:00 p. m.</span>
+          </p>
+        </div>
+      </div>
+      <div class="heroe-visual">
+        <img class="heroe-imagen" src="img/foto.png" alt="Ilustración del interior de la cafetería: mostrador, pizarra con el menú del día, máquina de espresso y vitrina de postres" width="1600" height="1000">
+        <div class="tarjeta-flotante">
+          <img src="img/almuerzo.png" alt="Plato de almuerzo ejecutivo" width="800" height="800">
+          <div>
+            <p class="tf-titulo">Menú del día</p>
+            <p class="tf-texto">Almuerzo ejecutivo <strong>B/. 3.50</strong></p>
+          </div>
+        </div>
+        <p class="sello">Café colado<span>B/. 0.75</span></p>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="contenedor sobre">
+        <div class="sobre-imagen">
+          <img src="img/terraza.png" alt="Ilustración de la terraza de la cafetería con mesas y sombrillas verdes frente al edificio" width="1600" height="1000">
+          <p class="sobre-dato"><strong>60</strong> puestos en la terraza</p>
+        </div>
+        <div class="sobre-texto">
+          <h2>Bienvenido a la cafetería</h2>
+          <p class="destacado">Somos el punto de encuentro de la comunidad de la <abbr title="Universidad Tecnológica de Panamá">UTP</abbr>: un lugar para desayunar, estudiar y recargar energía.</p>
+          <p>
+            Trabajamos con café de <strong>Boquete</strong> <em>tostado cada semana</em> y cocinamos el almuerzo el mismo día.
+            <mark>Los viernes el capuchino está a 2x1</mark> y la información de esta página está actualizada al
+            <time datetime="2026-09-24">24/09/2026</time>.
+          </p>
+          <p>
+            La <cite>Revista Estudiantil</cite> nos describió como <q>la mejor parada entre dos parciales</q>.
+            Precio del combo estudiante: <del>B/. 1.75</del> <ins>B/. 1.50</ins> con tu carné.
+          </p>
+          <p>
+            Tu 1<sup>er</sup> café del semestre es gratis con el código <code>UTP-CAFE</code>. Para pagar con Yappy escribe
+            <kbd>CAFETERIA</kbd> en el buscador de comercios. Usamos vasos compostables para reducir el CO<sub>2</sub>.
+          </p>
+          <p><small>Precios en balboas (B/.), sujetos a cambio sin previo aviso.</small></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="pizarra">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>Nuestro menú</h2>
+          <p class="nota-mano">Precios para estudiantes</p>
+        </div>
+        <ul class="filtros" aria-label="Filtrar el menú por categoría">
+          <li><button type="button" class="filtro activo" data-filtro="todo" aria-pressed="true">Todo el menú</button></li>
+          <li><button type="button" class="filtro" data-filtro="calientes" aria-pressed="false">Bebidas calientes</button></li>
+          <li><button type="button" class="filtro" data-filtro="frias" aria-pressed="false">Bebidas frías</button></li>
+          <li><button type="button" class="filtro" data-filtro="comidas" aria-pressed="false">Comidas</button></li>
+          <li><button type="button" class="filtro" data-filtro="snacks" aria-pressed="false">Snacks</button></li>
+        </ul>
+        <div class="productos">
+          <article class="producto" data-categoria="calientes">
+            <div class="producto-foto">
+              <img src="img/capuchino.png" alt="Ilustración de capuchino" width="800" height="800">
+              <span class="etiqueta">Más pedido</span>
+            </div>
+            <div class="producto-cuerpo">
+              <p class="categoria">Bebidas calientes</p>
+              <h3>Capuchino</h3>
+              <p>Espresso de Boquete con leche texturizada y arte latte.</p>
+              <div class="producto-pie">
+                <span class="precio">B/. 1.50</span>
+                <button type="button" class="agregar" data-producto="Capuchino">Agregar</button>
+              </div>
+            </div>
+          </article>
+          <article class="producto" data-categoria="snacks">
+            <div class="producto-foto">
+              <img src="img/empanadas.png" alt="Ilustración de empanadas de carne" width="800" height="800">
+              <span class="etiqueta">Recién horneadas</span>
+            </div>
+            <div class="producto-cuerpo">
+              <p class="categoria">Snacks</p>
+              <h3>Empanadas de carne</h3>
+              <p>Masa crujiente rellena de carne guisada, con ají de la casa.</p>
+              <div class="producto-pie">
+                <span class="precio">B/. 0.80</span>
+                <button type="button" class="agregar" data-producto="Empanadas de carne">Agregar</button>
+              </div>
+            </div>
+          </article>
+          <article class="producto" data-categoria="comidas">
+            <div class="producto-foto">
+              <img src="img/almuerzo.png" alt="Ilustración de almuerzo ejecutivo" width="800" height="800">
+              <span class="etiqueta">Plato del día</span>
+            </div>
+            <div class="producto-cuerpo">
+              <p class="categoria">Comidas</p>
+              <h3>Almuerzo ejecutivo</h3>
+              <p>Arroz, menestra, pollo a la plancha y ensalada fresca.</p>
+              <div class="producto-pie">
+                <span class="precio">B/. 3.50</span>
+                <button type="button" class="agregar" data-producto="Almuerzo ejecutivo">Agregar</button>
+              </div>
+            </div>
+          </article>
+          <article class="producto" data-categoria="frias">
+            <div class="producto-foto">
+              <img src="img/batido.png" alt="Ilustración de batido de fresa" width="800" height="800">
+              
+            </div>
+            <div class="producto-cuerpo">
+              <p class="categoria">Bebidas frías</p>
+              <h3>Batido de fresa</h3>
+              <p>Fresas naturales, leche y crema batida.</p>
+              <div class="producto-pie">
+                <span class="precio">B/. 2.00</span>
+                <button type="button" class="agregar" data-producto="Batido de fresa">Agregar</button>
+              </div>
+            </div>
+          </article>
+          <article class="producto" data-categoria="frias">
+            <div class="producto-foto">
+              <img src="img/maracuya.png" alt="Ilustración de jugo de maracuyá" width="800" height="800">
+              <span class="etiqueta">Refrescante</span>
+            </div>
+            <div class="producto-cuerpo">
+              <p class="categoria">Bebidas frías</p>
+              <h3>Jugo de maracuyá</h3>
+              <p>Natural, recién hecho y sin azúcar añadida.</p>
+              <div class="producto-pie">
+                <span class="precio">B/. 1.00</span>
+                <button type="button" class="agregar" data-producto="Jugo de maracuyá">Agregar</button>
+              </div>
+            </div>
+          </article>
+          <article class="producto" data-categoria="snacks">
+            <div class="producto-foto">
+              <img src="img/sandwich.png" alt="Ilustración de sándwich de jamón y queso" width="800" height="800">
+              
+            </div>
+            <div class="producto-cuerpo">
+              <p class="categoria">Snacks</p>
+              <h3>Sándwich de jamón y queso</h3>
+              <p>Pan artesanal, jamón, queso, lechuga y tomate.</p>
+              <div class="producto-pie">
+                <span class="precio">B/. 1.75</span>
+                <button type="button" class="agregar" data-producto="Sándwich de jamón y queso">Agregar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="info">
+      <div class="contenedor">
+        <h2>Bueno saber</h2>
+        <div class="info-grid">
+          <div class="glosario">
+            <h3>Glosario de la casa</h3>
+            <dl>
+              <dt>Combo estudiante</dt>
+              <dd>Café mediano con una empanada.</dd>
+              <dt>Menú del día</dt>
+              <dd>Plato fuerte, acompañante y bebida.</dd>
+              <dt>Pedido anticipado</dt>
+              <dd>Encargo que retiras listo a la hora indicada.</dd>
+            </dl>
+          </div>
+          <aside class="consejo">
+            <h3>Consejo</h3>
+            <p>Trae tu propio vaso reutilizable y te descontamos B/. 0.10 en cualquier bebida caliente.</p>
+            <img src="img/capuchino.png" alt="Capuchino en taza blanca" width="800" height="800">
+          </aside>
+          <div class="faq">
+            <h3>Preguntas frecuentes</h3>
+            <details open>
+              <summary>¿Aceptan pagos con Yappy?</summary>
+              <p>Sí, aceptamos Yappy, tarjeta y efectivo en todas las cajas.</p>
+            </details>
+            <details>
+              <summary>¿Tienen opciones vegetarianas?</summary>
+              <p>Todos los días hay un plato vegetariano y el sándwich puede ir sin jamón.</p>
+            </details>
+            <details>
+              <summary>¿Puedo reservar mesas para un grupo?</summary>
+              <p>Sí, para grupos de hasta 12 personas con un día de anticipación.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tabla">
+      <div class="contenedor tabla-grid">
+        <div>
+          <h2>Horarios y precios</h2>
+          <div class="tabla-contenedor">
+            <table>
+              <caption>Lista de precios de la Cafetería universitaria</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Producto</th>
+                  <th scope="col">Categoría</th>
+                  <th scope="col">Tamaño</th>
+                  <th scope="col" class="num">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th scope="row">Café americano</th>
+                <td>Bebida caliente</td>
+                <td>12 oz</td>
+                <td class="num">B/. 0.75</td>
+              </tr>
+              <tr>
+                <th scope="row">Capuchino</th>
+                <td>Bebida caliente</td>
+                <td>12 oz</td>
+                <td class="num">B/. 1.50</td>
+              </tr>
+              <tr>
+                <th scope="row">Empanada de carne</th>
+                <td>Snack</td>
+                <td>Unidad</td>
+                <td class="num">B/. 0.80</td>
+              </tr>
+              <tr>
+                <th scope="row">Almuerzo ejecutivo</th>
+                <td>Plato fuerte</td>
+                <td>Plato</td>
+                <td class="num">B/. 3.50</td>
+              </tr>
+              <tr>
+                <th scope="row">Jugo de maracuyá</th>
+                <td>Bebida fría</td>
+                <td>16 oz</td>
+                <td class="num">B/. 1.00</td>
+              </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">Lista actualizada por Alejandro Saenz. Los precios incluyen impuestos.</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        <div class="horario">
+          <h3>Horario de atención</h3>
+          <ul>
+            <li><span>Lunes a viernes</span><span>6:30 a. m. a 8:00 p. m.</span></li>
+            <li><span>Sábados</span><span>7:00 a. m. a 2:00 p. m.</span></li>
+            <li><span>Domingos</span><span>Cerrado</span></li>
+          </ul>
+          <p>El almuerzo ejecutivo se sirve de 11:30 a. m. a 2:00 p. m. o hasta agotar existencias.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="galeria" class="oscura">
+      <div class="contenedor">
+        <div class="titulo-seccion">
+          <h2>Galería y video</h2>
+          <p class="nota-mano">Así preparamos tu café</p>
+        </div>
+        <div class="galeria">
+          <div class="video-marco">
+            <video controls preload="metadata" poster="img/video-poster.jpg" playsinline width="1280" height="720">
+              <source src="media/cafe.mp4" type="video/mp4">
+              Tu navegador no puede reproducir video.
+            </video>
+            <p class="video-nota">Video con sonido de 12 segundos: del espresso al arte latte.</p>
+          </div>
+          <figure>
+            <img src="img/almuerzo.png" alt="Almuerzo ejecutivo servido: arroz, menestra, pollo a la plancha y ensalada" width="800" height="800">
+            <figcaption>El almuerzo ejecutivo de hoy. Ilustración de <cite>Alejandro Saenz</cite>.</figcaption>
+          </figure>
+          <figure>
+            <img src="img/terraza.png" alt="Terraza con mesas y sombrillas frente al edificio" width="1600" height="1000">
+            <figcaption>La terraza, ideal para estudiar al aire libre.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="contenedor contacto">
+        <div class="visitanos">
+          <h2>Haz tu pedido anticipado</h2>
+          <p>Encárgalo antes de clase y retíralo listo, sin hacer fila.</p>
+          <h3>Visítanos</h3>
+          <p>Planta baja del edificio de estudiantes, Campus Víctor Levi Sasso.</p>
+          <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-79.5360%2C9.0190%2C-79.5260%2C9.0290&amp;layer=mapnik"
+                  title="Mapa de ubicación de la Cafetería universitaria" loading="lazy"></iframe>
+        </div>
+        <form action="https://httpbin.org/get" method="get" autocomplete="on" class="formulario">
+          <fieldset>
+            <legend>Tus datos</legend>
+            <div class="campos">
+              <div class="campo">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Pérez" required minlength="3" maxlength="60">
+              </div>
+              <div class="campo">
+                <label for="correo">Correo institucional</label>
+                <input type="email" id="correo" name="correo" placeholder="nombre@utp.ac.pa" required autocomplete="email">
+              </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="6123-4567" pattern="[0-9]{4}-[0-9]{4}">
+              </div>
+              <div class="campo">
+                <label for="instagram">Instagram o sitio web (opcional)</label>
+                <input type="url" id="instagram" name="instagram" placeholder="https://">
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Tu pedido</legend>
+            <div class="campos">
+              <div class="campo campo-ancho">
+                <label for="preferencia">Producto</label>
+                <input type="text" id="preferencia" name="preferencia" list="lista-productos" placeholder="Escribe o elige del menú" required>
+                <datalist id="lista-productos">
+                  <option value="Capuchino"></option>
+                  <option value="Empanadas de carne"></option>
+                  <option value="Almuerzo ejecutivo"></option>
+                  <option value="Batido de fresa"></option>
+                  <option value="Jugo de maracuyá"></option>
+                  <option value="Sándwich de jamón y queso"></option>
+                </datalist>
+              </div>
+              <div class="campo">
+                <label for="cantidad">Cantidad</label>
+                <input type="number" id="cantidad" name="cantidad" min="1" max="20" step="1" value="1">
+              </div>
+              <div class="campo">
+                <label for="tipo">Tipo de pedido</label>
+                <select id="tipo" name="tipo">
+                  <option value="aqui">Para comer aquí</option>
+                  <option value="llevar">Para llevar</option>
+                  <option value="aula">Entrega en el aula</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="fecha">Día de retiro</label>
+                <input type="date" id="fecha" name="fecha" min="2026-01-01" max="2027-12-31" required>
+              </div>
+              <div class="campo">
+                <label for="hora">Hora de retiro</label>
+                <input type="time" id="hora" name="hora" min="06:30" max="20:00" step="900">
+              </div>
+              <div class="campo">
+                <label for="azucar">Azúcar: <output id="valor-azucar" for="azucar">2</output> cucharaditas</label>
+                <input type="range" id="azucar" name="azucar" min="0" max="5" step="1" value="2">
+              </div>
+              <div class="campo">
+                <label for="sucursal">Sucursal</label>
+                <input type="text" id="sucursal" name="sucursal" value="Campus Víctor Levi Sasso" readonly>
+              </div>
+              <fieldset class="opciones campo-ancho">
+                <legend>¿Cómo vas a pagar?</legend>
+                <input type="radio" id="pago-yappy" name="pago" value="yappy" checked>
+                <label for="pago-yappy">Yappy</label>
+                <input type="radio" id="pago-efectivo" name="pago" value="efectivo">
+                <label for="pago-efectivo">Efectivo</label>
+                <input type="radio" id="pago-tarjeta" name="pago" value="tarjeta">
+                <label for="pago-tarjeta">Tarjeta</label>
+              </fieldset>
+              <div class="campo campo-ancho">
+                <label for="mensaje">Indicaciones del pedido</label>
+                <textarea id="mensaje" name="mensaje" rows="3" maxlength="200" placeholder="Ej. capuchino con leche deslactosada"></textarea>
+                <p class="contador"><span id="contador">0</span> de 200 caracteres</p>
+              </div>
+              <div class="campo campo-ancho casilla">
+                <input type="checkbox" id="avisos" name="avisos">
+                <label for="avisos">Avísame por correo cuando mi pedido esté listo</label>
+              </div>
+            </div>
+          </fieldset>
+          <div class="botones">
+            <button type="submit">Enviar pedido</button>
+            <button type="reset" class="secundario">Borrar</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <p class="aviso-flotante" id="aviso" role="status" aria-live="polite"></p>
+
+  <footer class="pie">
+    <div class="contenedor">
+      <p class="pie-frase">Nos vemos entre clases.</p>
+      <div class="pie-columnas">
+        <div>
+          <p class="pie-titulo">Cafetería universitaria</p>
+          <p>Planta baja del edificio de estudiantes, Campus Víctor Levi Sasso.</p>
+        </div>
+        <div>
+          <p class="pie-titulo">Horario</p>
+          <p>Lunes a viernes de 6:30 a. m. a 8:00 p. m.<br>Sábados de 7:00 a. m. a 2:00 p. m.</p>
+        </div>
+        <div>
+          <p class="pie-titulo">Desarrollado por Alejandro Saenz</p>
+          <p>Laboratorio #6 de Desarrollo Web, <span id="anio">2026</span>.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
